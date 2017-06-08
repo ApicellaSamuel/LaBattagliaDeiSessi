@@ -8,7 +8,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args)
     {
-        int a = 15, b = 20;
+        int a = 15, b = 20, c = 3;
 
         Set<Femmina> femmine = new HashSet<>();
         Set<Maschio> maschi = new HashSet<>();
@@ -46,13 +46,13 @@ public class Main {
                     currentFemmina.setEnergy(a - b);
                     currentMaschio.setEnergy(a);
             }else if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
-                currentFemmina.setEnergy(a - b);
-                currentMaschio.setEnergy(a);
+                currentFemmina.setEnergy(a - (b/2));
+                currentMaschio.setEnergy(a - (b/2));
             }
-            else if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
-                currentFemmina.setEnergy(a - b);
-                currentMaschio.setEnergy(a);
-            }else if(nameFemm.equals("spr") && nameMasc.equals("avv")) {
+            else if(nameFemm.equals("pru") && nameMasc.equals("mor")) {
+                currentFemmina.setEnergy(a - (b/2) - c );
+                currentMaschio.setEnergy(a - (b/2) - c);
+            }else if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
                 //questo caso non serve perchè "per adesso" non accade nulla
             }
         }
