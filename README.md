@@ -21,5 +21,7 @@ prima di far partire il programma
    perchè possono esserci più figli forse sarebbe meglio creare
    un metodo a parte che gestisce i 2 partner che in seguito verranno
    rimossi dal set
-
+   
+**P.S.** Mi è venuto un idea sul come poter gestire il numero di figli
+         in una coppia
 ###### Nota: in questo primo esempio l'avventuriero non perde mai energia
