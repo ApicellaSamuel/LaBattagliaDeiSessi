@@ -13,6 +13,7 @@ prima di far partire il programma
 1. Implementiamo un nostro set personale in modo da poter
    implementare tutti i metodi che ci fanno più comodo direttamente
    nel set?
+   I set offerti da java non mi paiono molto casuali
 2. Mettiamo caso che una spregiudicata e un avventuriero vengono
    pescati dai rispettivi set, se la spregiudicata ha abbastanza energia
    si accoppierà sicuramente con l'avventuriero oppure introduciamo
@@ -22,6 +23,6 @@ prima di far partire il programma
    un metodo a parte che gestisce i 2 partner che in seguito verranno
    rimossi dal set
    
-**P.S.** Mi è venuto un idea sul come poter gestire il numero di figli
-         in una coppia
+`P.s.` Mi è venuto un idea sul come poter gestire il numero di figli
+         in una coppia...anche se poco corretta
 ###### Nota: in questo primo esempio l'avventuriero non perde mai energia

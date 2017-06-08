@@ -1,13 +1,13 @@
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
  * Created by Federico on 07/06/2017.
  */
 public class Main {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InterruptedException {
         int a = 15, b = 20, c = 3;
 
         Set<Femmina> femmine = new HashSet<>();
@@ -41,37 +41,52 @@ public class Main {
             iterFemmina = femmine.iterator();
             currentFemmina = iterFemmina.next();
 
-            if (currentFemmina.getEnergy() < 0) femmine.remove(currentFemmina);
+            if (currentFemmina.getEnergy() < 0){ femmine.remove(currentFemmina); continue; }
             currentMaschio = iterMaschio.next();
             //if (currentMaschio.getEnergy() < 0) maschi.remove(currentMaschio); //per adesso non serve perchè l'avventuriero non perde energia
             nameFemm = currentFemmina.getName();
             nameMasc = currentMaschio.getName();
 
             if (nameFemm.equals("spr") && nameMasc.equals("avv")) {
-                    currentFemmina.setEnergy(a - b);
-                    currentMaschio.setEnergy(a);
+                System.out.println("spr e avv");
+                currentFemmina.setEnergy(a - b);
+                currentMaschio.setEnergy(a);
+                //nuovoFiglio();
             }
-            else if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
+            if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
+                System.out.println("spr e mor");
                 currentFemmina.setEnergy(a - (b/2));
                 currentMaschio.setEnergy(a - (b/2));
+                //nuovoFiglio();
                 femmine.remove(currentFemmina);
                 maschi.remove(currentMaschio);
-                consumo(currentFemmina, currentMaschio);//forse esistono nomi migliori
+                consumo(currentFemmina, currentMaschio, a, b);//forse esistono nomi migliori
             }
-            else if(nameFemm.equals("pru") && nameMasc.equals("mor")) {
+            if(nameFemm.equals("pru") && nameMasc.equals("mor")) {
+                System.out.println("pru e mor");
                 currentFemmina.setEnergy(a - (b/2) - c );
                 currentMaschio.setEnergy(a - (b/2) - c);
+                //nuovoFiglio();
                 femmine.remove(currentFemmina);
                 maschi.remove(currentMaschio);
-                consumo(currentFemmina, currentMaschio);//forse esistono nomi migliori
+                consumo(currentFemmina, currentMaschio, a, b);//forse esistono nomi migliori
             }
-            /*else if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
+            if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
                 //questo caso non serve perchè "per adesso" non accade nulla se si incontrano
-            }*/
+                System.out.println("null");
+            }
+            Thread.currentThread().sleep(100);
         }
     }
 
-    private static void consumo(Femmina currentFemmina, Maschio currentMaschio) {
-
+    private static void consumo(Femmina femmina, Maschio maschio, int a, int b) {
+        int i = 2;
+        while(femmina.getEnergy() + (a-((b/2)*i)) > 0 && maschio.getEnergy() + (a-((b/2)*i)) > 0){
+            //nuovoFiglio();
+            femmina.setEnergy(a - ((b/2)*i) );
+            maschio.setEnergy(a - ((b/2)*i) );
+            i++;
+            System.out.println("ok");
+        }
     }
 }
