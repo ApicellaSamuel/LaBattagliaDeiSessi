@@ -34,27 +34,44 @@ public class Main {
         Maschio currentMaschio;
         String nameFemm, nameMasc;
         while(!femmine.isEmpty()){//iterFemmina.hasNext() && iterMaschio.hasNext()) {
+
             System.out.println("numero maschi: " + maschi.size() + "; numero femmine: " + femmine.size());
+
             iterMaschio = maschi.iterator();
             iterFemmina = femmine.iterator();
             currentFemmina = iterFemmina.next();
+
             if (currentFemmina.getEnergy() < 0) femmine.remove(currentFemmina);
             currentMaschio = iterMaschio.next();
+            //if (currentMaschio.getEnergy() < 0) maschi.remove(currentMaschio); //per adesso non serve perchè l'avventuriero non perde energia
             nameFemm = currentFemmina.getName();
             nameMasc = currentMaschio.getName();
+
             if (nameFemm.equals("spr") && nameMasc.equals("avv")) {
                     currentFemmina.setEnergy(a - b);
                     currentMaschio.setEnergy(a);
-            }else if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
+            }
+            else if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
                 currentFemmina.setEnergy(a - (b/2));
                 currentMaschio.setEnergy(a - (b/2));
+                femmine.remove(currentFemmina);
+                maschi.remove(currentMaschio);
+                consumo(currentFemmina, currentMaschio);//forse esistono nomi migliori
             }
             else if(nameFemm.equals("pru") && nameMasc.equals("mor")) {
                 currentFemmina.setEnergy(a - (b/2) - c );
                 currentMaschio.setEnergy(a - (b/2) - c);
-            }else if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
-                //questo caso non serve perchè "per adesso" non accade nulla
+                femmine.remove(currentFemmina);
+                maschi.remove(currentMaschio);
+                consumo(currentFemmina, currentMaschio);//forse esistono nomi migliori
             }
+            /*else if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
+                //questo caso non serve perchè "per adesso" non accade nulla se si incontrano
+            }*/
         }
+    }
+
+    private static void consumo(Femmina currentFemmina, Maschio currentMaschio) {
+
     }
 }
