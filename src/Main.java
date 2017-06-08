@@ -1,11 +1,7 @@
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * Created by Federico on 07/06/2017.
- */
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         int a = 15, b = 20, c = 3;
@@ -75,7 +71,7 @@ public class Main {
                 //questo caso non serve perchè "per adesso" non accade nulla se si incontrano
                 System.out.println("null");
             }
-            Thread.currentThread().sleep(100);
+            Thread.sleep(100);
         }
     }
 
