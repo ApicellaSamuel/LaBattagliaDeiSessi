@@ -68,9 +68,12 @@ public class main2 {
                 //questo caso non serve perchè "per adesso" non accade nulla se si incontrano
                 System.out.println("null");
             }
-            Thread.sleep(50);
+            //Thread.sleep(50);
         }
-        System.out.println("fine della generazione");
+        System.out.println("Fine della generazione. Sono rimasti:");
+        System.out.println("numero mor: " + maschi.getNumberofMorigerati() + "; numero avv: " + maschi.getNumberofAvventurieri());
+        System.out.println("numero pru: " + femmine.getNumberofPrudenti() + "; numero spr: " + femmine.getNumberofSpregiudicate());
+        System.out.println("numero maschi: " + maschi.size() + "; numero femmine: " + femmine.size() + "; TOT: " + (femmine.size()+maschi.size()));
     }
 
     private static void consumo(Femmina femmina, Maschio maschio, int a, int b) {
