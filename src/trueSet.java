@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class trueSet <T>{
 
     private ArrayList<T> set = new ArrayList<>();
-    private Integer nPru, nSpr, nMor, nAvv = 0;
+    private Integer nPru = 0, nSpr = 0, nMor = 0, nAvv = 0;
 
     public int size() {
         return this.set.size();
