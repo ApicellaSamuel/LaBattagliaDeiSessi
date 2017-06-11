@@ -3,6 +3,7 @@ public class main2 {
     public static void main(String[] args) throws InterruptedException {
         int a = 15, b = 20, c = 3;
 
+
         trueSet<Femmina> femmine = new trueSet<>();
         trueSet<Maschio> maschi = new trueSet<>();
 
@@ -23,7 +24,7 @@ public class main2 {
         Femmina currentFemmina;
         Maschio currentMaschio;
         String nameFemm, nameMasc;
-        while(femmine.getNumberofSpregiudicate() != 0 && maschi.getNumberofMorigerati() != 0){
+        while(femmine.getNumberofSpregiudicate() != 0 || maschi.getNumberofMorigerati() != 0){
 
             System.out.println("numero mor: " + maschi.getNumberofMorigerati() + "; numero avv: " + maschi.getNumberofAvventurieri());
             System.out.println("numero pru: " + femmine.getNumberofPrudenti() + "; numero spr: " + femmine.getNumberofSpregiudicate());

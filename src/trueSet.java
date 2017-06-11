@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class trueSet <T>{
+public class trueSet <T extends Individuo>{
 
     private ArrayList<T> set = new ArrayList<>();
     private Integer nPru = 0, nSpr = 0, nMor = 0, nAvv = 0;
@@ -20,7 +20,7 @@ public class trueSet <T>{
     }
 
     boolean add(T o) {
-        switch(((Individuo)o).getName()) {
+        switch((o).getName()) {
             case ("spr"): {
                 nSpr++;
                 break;
@@ -50,7 +50,7 @@ public class trueSet <T>{
 
     boolean remove(T o) {
 
-        switch(((Individuo)o).getName()) {
+        switch((o).getName()) {
             case ("spr"): {
                 nSpr--;
                 break;

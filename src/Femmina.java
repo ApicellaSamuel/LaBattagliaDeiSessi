@@ -1,6 +1,6 @@
 
 abstract class Femmina extends Individuo {
-    public String getName(int o) {
+    public String getName() {
         return "Io sono astratta";
     }
 }

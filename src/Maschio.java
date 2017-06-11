@@ -1,7 +1,7 @@
 
-abstract class Maschio extends Individuo {
+abstract class Maschio extends Individuo{
 
-    public String getName(int o) {
+    public String getName() {
         return "Io sono astratto";
     }
 }
