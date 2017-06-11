@@ -6,11 +6,11 @@ public class trueSet <T>{
     private ArrayList<T> set = new ArrayList<>();
     private Integer nPru = 0, nSpr = 0, nMor = 0, nAvv = 0;
 
-    public int size() {
+    int size() {
         return this.set.size();
     }
 
-    public T extract(){
+    T extract(){
         int randomNumber = (int) (Math.random()*this.set.size());
         return this.set.get(randomNumber);
     }
@@ -19,7 +19,7 @@ public class trueSet <T>{
         return this.set.isEmpty();
     }
 
-    public boolean add(T o) {
+    boolean add(T o) {
         switch(((Individuo)o).getName()) {
             case ("spr"): {
                 nSpr++;
@@ -43,12 +43,12 @@ public class trueSet <T>{
         return this.set.add(o);
     }
 
-    public Integer getNumberofSpregiudicate(){return nSpr;}
-    public Integer getNumberofPrudenti(){return nPru;}
-    public Integer getNumberofMorigerati(){return nMor;}
-    public Integer getNumberofAvventurieri(){return nAvv;}
+    Integer getNumberofSpregiudicate(){return nSpr;}
+    Integer getNumberofPrudenti(){return nPru;}
+    Integer getNumberofMorigerati(){return nMor;}
+    Integer getNumberofAvventurieri(){return nAvv;}
 
-    public boolean remove(T o) {
+    boolean remove(T o) {
 
         switch(((Individuo)o).getName()) {
             case ("spr"): {
