@@ -75,6 +75,7 @@ public class main2 {
         System.out.println("numero mor: " + maschi.getNumberofMorigerati() + "; numero avv: " + maschi.getNumberofAvventurieri());
         System.out.println("numero pru: " + femmine.getNumberofPrudenti() + "; numero spr: " + femmine.getNumberofSpregiudicate());
         System.out.println("numero maschi: " + maschi.size() + "; numero femmine: " + femmine.size() + "; TOT: " + (femmine.size()+maschi.size()));
+
     }
 
     private static void consumo(Femmina femmina, Maschio maschio, int a, int b) {
@@ -84,7 +85,7 @@ public class main2 {
             femmina.setEnergy(a - ((b/2)*i) );
             maschio.setEnergy(a - ((b/2)*i) );
             i++;
-            System.out.println("ok");
+            System.out.println("Nuovo figlio");
         }
     }
 

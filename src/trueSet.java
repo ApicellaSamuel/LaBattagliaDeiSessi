@@ -73,4 +73,8 @@ public class trueSet <T extends Individuo>{
         return this.set.remove(o);
     }
 
+    void removeAll(){
+        this.set.clear();
+    }
+
 }

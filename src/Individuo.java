@@ -11,5 +11,5 @@ public abstract class Individuo {
         this.energy = this.energy+i;
     }
 
-    public String getName(){ return "Hello!"; }
+    public abstract String getName();
 }
