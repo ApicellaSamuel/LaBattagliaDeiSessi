@@ -32,20 +32,23 @@ public class main2 {
 
             currentFemmina = femmine.extract();
 
-            if (currentFemmina.getEnergy() < 0){ femmine.remove(currentFemmina); continue; }
-
             currentMaschio = maschi.extract();
-
-            //if (currentMaschio.getEnergy() < 0) maschi.remove(currentMaschio); //per adesso non serve perchè l'avventuriero non perde energia
 
             nameFemm = currentFemmina.getName();
             nameMasc = currentMaschio.getName();
 
+            maschi.remove(currentMaschio);//poi il thread lo rimette se serve
+            femmine.remove(currentFemmina);
+
+            Accoppiatore acc = new Accoppiatore(currentMaschio, currentFemmina);
+
+            /*
             if (nameFemm.equals("spr") && nameMasc.equals("avv")) {
                 System.out.println("spr e avv");
                 currentFemmina.setEnergy(a - b);
                 currentMaschio.setEnergy(a);
                 //nuovoFiglio();
+                if (currentFemmina.getEnergy() < 0) femmine.remove(currentFemmina);
             }
             if(nameFemm.equals("spr") && nameMasc.equals("mor")) {
                 System.out.println("spr e mor");
@@ -68,7 +71,7 @@ public class main2 {
             if(nameFemm.equals("pru") && nameMasc.equals("avv")) {
                 //questo caso non serve perchè "per adesso" non accade nulla se si incontrano
                 System.out.println("null");
-            }
+            }*/
             //Thread.sleep(50);
         }
         System.out.println("Fine della generazione. Sono rimasti:");
