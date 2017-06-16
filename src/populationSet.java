@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 
 
-public class trueSet <T extends Individuo>{
+public class populationSet<T extends Individuo>{
 
-    private ArrayList<T> set = new ArrayList<>();
-    private Integer nPru = 0, nSpr = 0, nMor = 0, nAvv = 0;
+    private volatile ArrayList<T> set = new ArrayList<>();
+    private volatile Integer nPru = 0, nSpr = 0, nMor = 0, nAvv = 0;
 
     int size() {
         return this.set.size();
     }
 
-    T extract(){
+    synchronized T extract(){
         int randomNumber = (int) (Math.random()*this.set.size());
+        //System.out.println("Size: " + set.size() + " randomNumber: " + randomNumber);
         return this.set.get(randomNumber);
     }
 
@@ -19,7 +20,8 @@ public class trueSet <T extends Individuo>{
         return this.set.isEmpty();
     }
 
-    boolean add(T o) {
+
+    synchronized boolean add(T o) {
         switch((o).getName()) {
             case ("spr"): {
                 nSpr++;
@@ -43,12 +45,12 @@ public class trueSet <T extends Individuo>{
         return this.set.add(o);
     }
 
-    Integer getNumberofSpregiudicate(){return nSpr;}
-    Integer getNumberofPrudenti(){return nPru;}
-    Integer getNumberofMorigerati(){return nMor;}
-    Integer getNumberofAvventurieri(){return nAvv;}
+    Integer getNumberOfSpregiudicate(){return nSpr;}
+    Integer getNumberOfPrudenti(){return nPru;}
+    Integer getNumberOfMorigerati(){return nMor;}
+    Integer getNumberOfAvventurieri(){return nAvv;}
 
-    boolean remove(T o) {
+    synchronized boolean remove(T o) {
 
         switch((o).getName()) {
             case ("spr"): {
@@ -73,7 +75,7 @@ public class trueSet <T extends Individuo>{
         return this.set.remove(o);
     }
 
-    void removeAll(){
+    synchronized void removeAll(){
         this.set.clear();
     }
 

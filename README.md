@@ -11,13 +11,14 @@ prima di far partire il programma
    un fattore di probabilità? 
    
    ``(del tipo 20% dice no e 80% si)``
-   
-3. Dato che le interazioni con il morigerato sono più complicate
-   perchè possono esserci più figli forse sarebbe meglio creare
-   un metodo a parte che gestisce i 2 partner che in seguito verranno
-   rimossi dal set
+
    
 4. Con quanta energia si parte?...uguale per tutti o casuale a seconda
    del singolo individuo(fisico)?
+   
+
+6. E se fosse Population a gestire tutto e non il main?
          
+#####7. Quanti figli ha già fatto una spregiudicata? è importante
+
 ###### Nota: in questo primo esempio l'avventuriero non perde mai energia
