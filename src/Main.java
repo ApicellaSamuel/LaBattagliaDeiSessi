@@ -1,18 +1,17 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         int nIterations = 30;//in seguito verrà passato come parametro
 
-        Population population = new Population(15,20,3, 10, 10, 10, 10);//il senso dei parametri ci sta
+        Population population = new Population(15,20,3, 20, 20, 20, 20);//il senso dei parametri ci sta
 
         //Start!
         Femmina currentFemmina;
         Maschio currentMaschio;
+        boolean flag;
         for(int i = 0; i < nIterations; i++) {
-
             {
                 System.out.println("numero mor: " + population.getNumberOfMorigerati() + "; numero avv: " + population.getNumberOfAvventurieri());
                 System.out.println("numero pru: " + population.getNumberOfPrudenti() + "; numero spr: " + population.getNumberOfSpregiudicate());
@@ -24,29 +23,28 @@ public class Main {
                 Thread.sleep(1000);
             }
 
+            flag = true;
+            while(flag) {
             ExecutorService executorService = Executors.newCachedThreadPool();
 
-            while (population.getNumberOfSpregiudicate() != 0 || population.getNumberOfMorigerati() != 0) {
+                while (population.getNumberOfSpregiudicate() != 0 || population.getNumberOfMorigerati() != 0) {
 
-                if(population.getNumberOfSpregiudicate() == 0 && population.getNumberOfPrudenti() == 0) break;
-                currentFemmina = population.extractFemale();
-                if(population.getNumberOfAvventurieri() == 0 && population.getNumberOfMorigerati() == 0) break;
-                currentMaschio = population.extractMale();
+                    if (population.getNumberOfSpregiudicate() == 0 && population.getNumberOfPrudenti() == 0) break;
+                    currentFemmina = population.extractFemale();
+                    if (population.getNumberOfAvventurieri() == 0 && population.getNumberOfMorigerati() == 0) break;
+                    currentMaschio = population.extractMale();
 
-                //Accoppiatore acc = new Accoppiatore(currentMaschio, currentFemmina, population);
-                //acc.run();
-                executorService.submit(new Accoppiatore(currentMaschio, currentFemmina, population));
+
+                    executorService.submit(new Accoppiatore(currentMaschio, currentFemmina, population));
+                }
+                Thread.sleep(1000);
+                executorService.shutdown();
+                if (population.getNumberOfSpregiudicate() == 0) {
+                    flag = false;
+                    population = new Population(15, 20, 3, population.getNextMale(), population.getNextFemale());
+                    System.out.println("Next!!!!!!!!!!! " + i);
+                }
             }
-
-            executorService.shutdown();
-            if (!executorService.awaitTermination(2000, TimeUnit.MILLISECONDS)) {
-                Thread.interrupted();
-                System.out.println("Shittt!!");
-            }
-            population = new Population(15, 20, 3, population.getNextMale(), population.getNextFemale());
-
-            System.out.println("Next!!!!!!!!!!! " + i);
-
         }
 
 

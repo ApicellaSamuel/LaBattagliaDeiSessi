@@ -1,7 +1,7 @@
 
 public abstract class Individuo {
 
-    private int energy = 50;
+    private int energy = 20;
 
     int getEnergy(){
         return this.energy;
