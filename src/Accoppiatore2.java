@@ -28,7 +28,7 @@ public class Accoppiatore2 {//extends Thread{
                         i++;
                     }
                 }
-                if( a < 0 ){
+                /*if( a < 0 ){
                     int i = a;
                     while(i < 0) {
                         Maschio maschioi = population.extractMale();
@@ -38,7 +38,7 @@ public class Accoppiatore2 {//extends Thread{
                 }
 
                 for(int i = 0; i < a-b; i++)
-                    population.putFemale(new Spregiudicata());
+                    population.putFemale(new Spregiudicata());*/
 
                 for(int i = 0; i < a; i++)
                     population.putMale(new Avventuriero());
