@@ -30,15 +30,12 @@ public class myMain {
 
 
             //ExecutorService executorService = Executors.newCachedThreadPool();
-
-            //while (population.getNumberOfSpregiudicate() != 0 || population.getNumberOfMorigerati() != 0
-                    //|| population.getNumberOfPrudenti() != 0 || population.getNumberOfAvventurieri() != 0) {
             //boolean end = false;
             int j = 0;
             while(j++<1000){
-                if (population.getNumberOfSpregiudicate() == 0 && population.getNumberOfPrudenti() == 0) break;//end = true;
+                if (population.getNumberOfSpregiudicate() == 0 && population.getNumberOfPrudenti() == 0) break;
                 currentFemmina = population.extractFemale();
-                if (population.getNumberOfAvventurieri() == 0 && population.getNumberOfMorigerati() == 0) break;//end = true;
+                if (population.getNumberOfAvventurieri() == 0 && population.getNumberOfMorigerati() == 0) break;
                 currentMaschio = population.extractMale();
 
                 new Accoppiatore2(currentMaschio, currentFemmina, population).go();

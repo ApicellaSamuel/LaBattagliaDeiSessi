@@ -12,13 +12,14 @@ public class Accoppiatore2 {//extends Thread{
 
     //@Override
     //public void run(){
-    public void go(){
+    void go(){
         int a = population.getA(); int b = population.getB(); int c = population.getC();
 
         String concat = maschio.getName()+femmina.getName();
         switch(concat){
 
             case("avvspr"): {
+
                 if( a-b < 0 ){
                     int i = a-b;
                     while(i < 0) {
@@ -27,14 +28,21 @@ public class Accoppiatore2 {//extends Thread{
                         i++;
                     }
                 }
+                if( a < 0 ){
+                    int i = a;
+                    while(i < 0) {
+                        Maschio maschioi = population.extractMale();
+                        if (maschioi.getName().equals("avv")) population.putMale(maschioi);
+                        i++;
+                    }
+                }
 
-                for(int i = 0; i < a-b; i++) {
+                for(int i = 0; i < a-b; i++)
                     population.putFemale(new Spregiudicata());
-                    System.out.println("Hello");
-                }
-                for(int i = 0; i < a; i++){
+
+                for(int i = 0; i < a; i++)
                     population.putMale(new Avventuriero());
-                }
+
                 break;
             }
 
@@ -58,7 +66,6 @@ public class Accoppiatore2 {//extends Thread{
             }
 
             case("avvpru"):{
-                //population.setNextAvv(-c);
                 population.putFemale(femmina);
                 population.putMale(maschio);
                 break;
