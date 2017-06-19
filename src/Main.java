@@ -3,15 +3,16 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        int nIterations = 30;//in seguito verrà passato come parametro
+        int nIterations = 30;
 
-        Population population = new Population(15,20,3, 20, 20, 20, 20);//il senso dei parametri ci sta
+        Population population = new Population(15,20,3, 20, 20, 20, 20);
 
         //Start!
         Femmina currentFemmina;
         Maschio currentMaschio;
         boolean flag;
         for(int i = 0; i < nIterations; i++) {
+
             {
                 System.out.println("numero mor: " + population.getNumberOfMorigerati() + "; numero avv: " + population.getNumberOfAvventurieri());
                 System.out.println("numero pru: " + population.getNumberOfPrudenti() + "; numero spr: " + population.getNumberOfSpregiudicate());
@@ -37,6 +38,7 @@ public class Main {
 
                     executorService.submit(new Accoppiatore(currentMaschio, currentFemmina, population));
                 }
+
                 Thread.sleep(1000);
                 executorService.shutdown();
                 if (population.getNumberOfSpregiudicate() == 0) {

@@ -8,6 +8,7 @@ public class Population {
     private populationSet<Femmina> nextFemale = new populationSet<>();
     private populationSet<Maschio> nextMale = new populationSet<>();
     private int a, b, c;
+    private Integer nextAvv = 0, nextPru = 0, nextMor = 0, nextSpr = 0;
 
     public Population(int a, int b, int c, int nAvv, int nSpr, int nMor, int nPru){
 
@@ -89,6 +90,32 @@ public class Population {
     }
     synchronized void newMale(Maschio male){
         nextMale.add(male);
+    }
+
+
+    synchronized void setNextAvv(Integer nAvv){
+        this.nextAvv += nAvv;
+    }
+    synchronized void setNextMor(Integer nMor){
+        this.nextMor += nMor;
+    }
+    synchronized void setNextPru(Integer nPru){
+        this.nextPru += nPru;
+    }
+    synchronized void setNextSpr(Integer nSpr){
+        this.nextSpr += nSpr;
+    }
+    synchronized Integer getNextAvv(){
+        return nextAvv;
+    }
+    synchronized Integer getNextMor(){
+        return nextMor;
+    }
+    synchronized Integer getNextPru(){
+        return nextPru;
+    }
+    synchronized Integer getNextSpr(){
+        return nextSpr;
     }
 
     synchronized populationSet<Femmina> getNextFemale(){
