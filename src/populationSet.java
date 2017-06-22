@@ -12,7 +12,6 @@ public class populationSet<T extends Individuo>{
 
     synchronized T extract(){
         int randomNumber = (int) (Math.random()*this.set.size());
-        //System.out.println("Size: " + set.size() + " randomNumber: " + randomNumber);
         return this.set.get(randomNumber);
     }
 

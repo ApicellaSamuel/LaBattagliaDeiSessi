@@ -1,7 +1,7 @@
 
 abstract class Femmina extends Individuo {
 
-    private int nSons = 0;
+    /*private int nSons = 0;
 
     int getNSons() {
         return nSons;
@@ -9,5 +9,5 @@ abstract class Femmina extends Individuo {
 
     void newSon() {
         nSons++;
-    }
+    }*/
 }
